@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb', // bleu perso
-        accent:  '#14b8a6', // turquoise
+        primary: require('tailwindcss/colors').emerald,
+        secondary: require('tailwindcss/colors').gray,
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

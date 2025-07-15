@@ -1,3 +1,20 @@
+import FadeIn from './FadeIn';
+import {motion} from 'framer-motion';
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.5,
+        },
+    },
+};
+
+const itemVariants = {
+    visible: {opacity: 1},
+    hidden: {opacity: 0},
+};
+
 /* ---------- 1. Données ---------- */
 const projects = [
     {
@@ -20,7 +37,7 @@ const projects = [
     },
     {
         name: 'Chess Tournament Manager',
-        stack: 'Java • API REST • Swing',
+        stack: 'Java • API REST',
         desc: 'Gestion de tournois d’échecs, classement Elo et organisation des rondes (projet de groupe).',
         link: 'https://github.com/ThomasRestiau/ChessTournamentManagerAPI',
     },
@@ -29,30 +46,41 @@ const projects = [
 /* ---------- 2. Composant React ---------- */
 export default function Projects() {
     return (
-        <section
-            id="projects"
-            className="min-h-screen flex flex-col items-center justify-center px-4 scroll-mt-20"
-        >
-            <h2 className="text-4xl font-bold mb-6">Projets</h2>
+        <FadeIn>
+            <section
+                id="projects"
+                className="px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto"
+            >
+                <h2 className="text-3xl font-bold text-primary-600 mb-6">Projects</h2>
 
-            {/* ---------- 3. Utilisation de la constante ---------- */}
-            <div className="grid gap-8 md:grid-cols-2">
-                {projects.map((p) => (
-                    <a
-                        key={p.name}
-                        href={p.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block p-6 border rounded-xl shadow hover:shadow-lg transition"
-                    >
-                        <h3 className="text-2xl font-semibold mb-2">{p.name}</h3>
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">
-                            {p.stack}
-                        </p>
-                        <p>{p.desc}</p>
-                    </a>
-                ))}
-            </div>
-        </section>
+                {/* ---------- 3. Utilisation des données ---------- */}
+                <motion.div
+                    className="grid gap-8 md:grid-cols-2"
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{once: false, amount: 0.2}}
+                >
+                    {projects.map((p) => (
+
+                        <motion.a
+                            key={p.name}
+                            href={p.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            variants={itemVariants}
+                            className="block p-6 border rounded-xl shadow hover:shadow-lg transition hover:border-primary-500"
+                        >
+                            <h3 className="text-2xl font-semibold mb-2 text-primary-600">{p.name}</h3>
+                            <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">
+                                {p.stack}
+                            </p>
+                            <p>{p.desc}</p>
+                        </motion.a>
+
+                    ))}
+                </motion.div>
+            </section>
+        </FadeIn>
     );
 }

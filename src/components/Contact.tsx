@@ -1,23 +1,44 @@
+import FadeIn from './FadeIn';
+import {FaEnvelope, FaGithub, FaLinkedin} from "react-icons/fa";
+
+/* ---------- 1. Composant React ---------- */
 export default function Contact() {
     return (
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center px-4 scroll-mt-20">
-            <h2 className="text-4xl font-bold mb-6">Contact</h2>
+        <FadeIn>
+            <section id="contact"
+                     className="px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-36">
+                <h2 className="text-3xl font-bold text-primary-600 mb-6">Contact</h2>
 
-            <ul className="space-y-3 text-lg text-center">
-                <li>
-                    <a href="mailto:thomas.restiau@live.be" className="underline">thomas.restiau@live.be</a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/thomas-restiau" target="_blank" rel="noopener noreferrer" className="underline">
-                        linkedin.com/in/thomas-restiau
+                <div className="text-lg flex gap-1">
+
+                    <a href="mailto:thomas.restiau@live.be"
+                       className="text-4xl text-secondary-700 hover:text-primary-600 underline transition-colors"
+                    >
+                        {<FaEnvelope/>}
                     </a>
-                </li>
-                <li>
-                    <a href="https://github.com/ThomasRestiau" target="_blank" rel="noopener noreferrer" className="underline">
-                        github.com/ThomasRestiau
+
+
+                    <a href="https://www.linkedin.com/in/thomas-restiau" target="_blank" rel="noopener noreferrer"
+                       className="text-4xl text-blue-700 hover:text-primary-600 underline transition-colors"
+                    >
+                        {<FaLinkedin/>}
                     </a>
-                </li>
-            </ul>
-        </section>
+
+
+                    <a href="https://github.com/ThomasRestiau" target="_blank" rel="noopener noreferrer"
+                       className="text-4xl text-secondary-700 hover:text-primary-600 underline transition-colors"
+                    >
+                        {<FaGithub/>}
+                    </a>
+                </div>
+                <a
+                    href="/CV_Thomas_Restiau.pdf"
+                    download
+                    className="mt-4 ml-4 px-4 py-2 bg-primary-600 text-white rounded-xl shadow hover:bg-primary-700 transition text-sm"
+                >
+                    Télécharger mon CV
+                </a>
+            </section>
+        </FadeIn>
     );
 }
