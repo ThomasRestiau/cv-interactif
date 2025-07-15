@@ -1,6 +1,16 @@
 import FadeIn from './FadeIn';
 import {FaEnvelope, FaGithub, FaLinkedin} from "react-icons/fa";
 
+const handleSimpleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/cv-interactif/cv-thomas-restiau.pdf';
+    link.download = 'cv-thomas-restiau.pdf';
+    link.setAttribute('type', 'application/pdf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+
 /* ---------- 1. Composant React ---------- */
 export default function Contact() {
     return (
@@ -32,9 +42,8 @@ export default function Contact() {
                     </a>
                 </div>
                 <a
-                    href="/CV_Thomas_Restiau.pdf"
-                    download
-                    className="mt-4 ml-4 px-4 py-2 bg-primary-600 text-white rounded-xl shadow hover:bg-primary-700 transition text-sm"
+                    onClick={handleSimpleDownload}
+                    className="cursor-pointer mt-4 ml-4 px-4 py-2 bg-primary-600 text-white rounded-xl shadow hover:bg-primary-700 transition text-sm"
                 >
                     Télécharger mon CV
                 </a>
