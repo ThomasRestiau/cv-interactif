@@ -60,7 +60,7 @@ export default function Education() {
                 <h2 className="text-3xl font-bold text-primary-600 mb-6">Education</h2>
 
                 <motion.div
-                    className="w-full max-w-3xl space-y-6"
+                    className="mb-6 w-full max-w-3xl space-y-6"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"

@@ -99,14 +99,14 @@ export default function Skills() {
     return (
         <FadeIn>
             <section id="skills"
-                     className="px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto"
+                     className="border-2 rounded-lg border-gray-100 px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto"
             >
 
-                <h2 className="text-3xl font-bold text-primary-600 mb-6">Skills</h2>
+                <h2 className="text-3xl font-bold text-primary-600 mb-6 mt-6">Skills</h2>
 
                 {/* ---------- 3. Utilisation des données ---------- */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+                    className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -114,10 +114,10 @@ export default function Skills() {
                 >
                     {skills.map(({ category, items }) => (
                         <motion.div key={category} variants={itemVariants}>
-                            <h3 className="text-xl font-semibold mb-2 capitalize">{category}</h3>
+                            <h3 className="text-primary text-xl font-semibold mb-2 capitalize">{category}</h3>
                             <ul className="list-disc list-inside space-y-1">
                                 {items.map(({ name, icon }) => (
-                                    <li key={name} className="flex items-center gap-2">
+                                    <li key={name} className="flex items-center justify-center gap-2">
                                         <span>{name}</span>
                                         <span>{icon}</span>
                                     </li>

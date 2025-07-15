@@ -5,8 +5,8 @@ export default function About() {
     return (
         <FadeIn>
             <section id="about"
-                     className="px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto mt-20">
-                <h2 className="text-3xl font-bold text-primary-600 mb-6">About</h2>
+                     className="border-2 border-gray-100 rounded-lg px-4 scroll-mt-20 flex flex-col items-center justify-center text-center max-w-3xl mx-auto mt-20">
+                <h2 className="text-3xl font-bold text-primary-600 mb-6 mt-6">About</h2>
 
                 <p className="text-xl font-semibold mb-4 max-w-2xl">
                     Thomas Restiau, développeur Java / Angular en reconversion avec un parcours atypique, entre
@@ -52,7 +52,7 @@ export default function About() {
                     humaine.
                 </p>
 
-                <p className="max-w-2xl leading-relaxed mt-4">
+                <p className="max-w-2xl leading-relaxed mt-4 mb-6">
                     Je cherche à rejoindre une équipe qui valorise la collaboration, la curiosité, l’autonomie et le
                     partage. Pas besoin d’un cadre rigide pour m’impliquer : je suis le genre de personne qui s’investit
                     naturellement, jusqu’au bout, pour faire les choses bien.

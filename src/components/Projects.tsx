@@ -71,7 +71,7 @@ export default function Projects() {
                             variants={itemVariants}
                             className="block p-6 border rounded-xl shadow hover:shadow-lg transition hover:border-primary-500"
                         >
-                            <h3 className="text-2xl font-semibold mb-2 text-primary-600">{p.name}</h3>
+                            <h3 className="text-2xl font-semibold mb-2 text-primary">{p.name}</h3>
                             <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">
                                 {p.stack}
                             </p>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ThemeToggle from './ThemeToggle';
 
 /* ---------- 1. Données ---------- */
 const navLinks = [
@@ -18,18 +19,19 @@ export default function Header() {
     const closeMenu = () => setIsOpen(false);
 
     return (
-        <header className="fixed top-0 left-0 right-0 h-20 bg-white shadow px-4 z-50">
+        <header className="bg-theme border-b-2 border-gray-100 fixed top-0 left-0 right-0 h-20 px-4 z-50">
             <div className="flex items-center justify-around h-full max-w-5xl mx-auto">
                 {/* Desktop nav */}
                 {/* ---------- 3. Utilisation des données ---------- */}
                 <nav className="hidden md:flex gap-8 items-center">
                     {navLinks.map((link) => (
                         <a key={link.href} href={link.href}
-                           className="text-secondary-700 hover:text-primary-500 transition-colors"
+                           className="text-theme hover:text-primary transition-colors"
                         >
                             {link.label}
                         </a>
                     ))}
+                    <ThemeToggle />
                 </nav>
 
                 {/* Mobile button */}
@@ -67,17 +69,18 @@ export default function Header() {
             {/* Mobile menu */}
             {/* ---------- 3. Utilisation des données ---------- */}
             {isOpen && (
-                <nav className="md:hidden absolute top-20 left-0 right-0 bg-white shadow-md py-4 px-6 space-y-4 z-40">
+                <nav className="bg-theme md:hidden absolute top-20 left-0 right-0 bg-white shadow-md py-4 px-6 space-y-4 z-40">
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className="block text-center text-lg text-secondary-700 hover:text-primary-500 transition-colors"
+                            className="block text-center text-lg text-theme hover:text-primary-500 transition-colors"
                             onClick={closeMenu}
                         >
                             {link.label}
                         </a>
                     ))}
+                    <ThemeToggle />
                 </nav>
             )}
         </header>

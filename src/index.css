@@ -8,6 +8,36 @@ html {
 }
 
 body {
-    @apply bg-gray-50 text-gray-800;
+    background-color: var(--color-bg);
+    color: var(--color-text);
 }
 
+:root {
+    --color-bg: #e5e7eb;
+    --color-text: #1f2937; /* gray-800 */
+    --color-primary: #10b981; /* emerald-500 */
+}
+
+.dark {
+    --color-bg: #1f2937;
+    --color-text: #f9fafb; /* gray-100 */
+    --color-primary: #34d399; /* emerald-400 */
+}
+
+@layer utilities {
+    .bg-theme {
+        background-color: var(--color-bg);
+    }
+
+    .text-theme {
+        color: var(--color-text);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+}
