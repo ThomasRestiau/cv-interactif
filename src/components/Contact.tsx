@@ -1,14 +1,30 @@
 import FadeIn from './FadeIn';
 import {FaEnvelope, FaGithub, FaLinkedin} from "react-icons/fa";
 
-const handleSimpleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/cv-interactif/cv-thomas-restiau.pdf';
-    link.download = 'cv-thomas-restiau.pdf';
-    link.setAttribute('type', 'application/pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+const handleSimpleDownload = async () => {
+    try {
+        const response = await fetch('/cv-interactif/cv-thomas-restiau.pdf');
+        const blob = await response.blob();
+
+        // Créer un blob avec le bon type MIME
+        const pdfBlob = new Blob([blob], { type: 'application/pdf' });
+        const url = window.URL.createObjectURL(pdfBlob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'cv-thomas-restiau.pdf';
+        link.setAttribute('type', 'application/pdf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Nettoyer
+        window.URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error('Erreur de téléchargement:', error);
+        // Fallback : ouvrir dans un nouvel onglet
+        window.open('/cv-interactif/cv-thomas-restiau.pdf', '_blank');
+    }
 };
 
 /* ---------- 1. Composant React ---------- */
