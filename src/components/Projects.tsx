@@ -26,7 +26,7 @@ const projects = [
     {
         name: 'TaskBoard',
         stack: 'Spring Boot • Angular • PostgreSQL',
-        desc: 'Application de gestion de tâches type Trello, architecture Clean, JWT, filtres dynamiques.',
+        desc: 'Application de gestion de tâches type Trello, architecture en couches, JWT, filtres dynamiques.',
         link: 'https://github.com/ThomasRestiau/TaskBoard-backend',
     },
     {
